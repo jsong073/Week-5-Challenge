@@ -5,3 +5,11 @@ nav {
 body {
     background-color: antiquewhite;
 }
+
+ol li{
+    font-size: large !important;
+}
+
+.customer-info {
+    font-size: large;
+}

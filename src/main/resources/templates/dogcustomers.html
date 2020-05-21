@@ -29,17 +29,13 @@
     </div>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Harry's Hairy Emporium Customer List:</h1>
-        </div>
-    </div>
-    <div class="container outline-dark">
+    <h2>Customers with Dogs</h2>
+    <div th:each="customer:${customers}">
         <div class="row">
             <div class="col">
-                <ul th:each="customer:${customers}">
+                <ul th:if="${customer.pet.type} == 'Dog'">
                     <h4 th:text="${customer.name}"></h4>
-                    <li>Phone Number: <span th:text="${customer.phone}"></span></li>
+                    <li th:text="${customer.phone}"></li>
                     <strong>Pet: <span th:text="${customer.pet.type}"></span></strong>
                     <li>Name: <span th:text="${customer.pet.name}"></span></li>
                     <li>Gender: <span th:text="${customer.pet.gender}"></span></li>

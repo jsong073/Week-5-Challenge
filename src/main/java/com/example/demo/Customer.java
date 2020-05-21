@@ -5,6 +5,12 @@ public class Customer {
     private String phone;
     private Pet pet;
 
+    public Customer() {
+        name = "";
+        phone = "";
+        pet = new Pet();
+    }
+
     public String getName() {
         return name;
     }

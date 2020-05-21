@@ -6,49 +6,62 @@
     <script src="https://kit.fontawesome.com/060e8bc0c6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" th:href="@{/styles/main.css}"/>
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" th:href="@{/}">Harry's Hairy Emporium</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" th:href="@{/form}">Add A Customer <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" th:href="@{/dogcustomers}">Dog Owners</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" th:href="@{/catcustomers}">Cat Owners</a>
             </li>
         </ul>
     </div>
 </nav>
 <div class="container">
-    [[${customer.name}]] <br/>
-    [[${customer.phone}]] <br/>
+    <div class="customer-info">
+        Customer Name: [[${customer.name}]] <br/>
+        Phone Number: [[${customer.phone}]] <br/>
+        Pet Name: [[${customer.pet.name}]] <br/>
+        Pet Gender: [[${customer.pet.gender}]] <br/>
+        Pet Age: [[${customer.pet.age}]]
+    </div>
     <form action="#" th:action="@{/home}" th:object="${customer}" method="post">
         <div th:switch="*{pet.type}">
             <div th:case="'Dog'">
-                What breed is your dog?
+                <span class="customer-info">Breed:</span>
                 <select th:field="*{pet.breed}">
                     <option th:value="'Alaskan Husky'">Alaskan Husky</option>
                     <option th:value="'Boxer'">Boxer</option>
+                    <option th:value="'Chihuahua'">Chihuahua</option>
+                    <option th:value="'Golden Retriever'">Golden Retriever</option>
+                    <option th:value="'Maltese'">Maltese</option>
+                    <option th:value="'Poodle'">Poodle</option>
+                    <option th:value="'Shar Pei'">Shar Pei</option>
+                    <option th:value="'Yorkshire Terrier'">Yorkshire Terrier</option>
                 </select>
             </div>
             <div th:case="'Cat'">
-                What breed is your cat?
+                <span class="customer-info">Breed:</span>
                 <select th:field="*{pet.breed}">
                     <option th:value="'Abyssinian'">Abyssinian</option>
                     <option th:value="'Asian Semi-longhair'">Asian Semi-longhair</option>
+                    <option th:value="'Birman'">Birman</option>
+                    <option th:value="'Bombay'">Bombay</option>
+                    <option th:value="'Korat'">Korat</option>
+                    <option th:value="'Russian Blue'">Russian Blue</option>
+                    <option th:value="'Sphinx'">Sphinx</option>
                 </select>
             </div>
         </div>

@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class HomeController {
         return "form";
     }
 
-    @PostMapping("/confirmform")
+    @PostMapping("/form2")
     public String processForm(@ModelAttribute Customer customer, Model model) {
         this.customer = customer;
         System.out.println(this.customer.toString());
@@ -38,6 +39,24 @@ public class HomeController {
         System.out.println(this.customer.toString());
         this.customer.getPet().setBreed(customer.getPet().getBreed());
         customers.add(this.customer);
+        model.addAttribute("customers", customers);
+        return "home";
+    }
+
+    @RequestMapping("/catcustomers")
+    public String loadCatCustomersPage(Model model) {
+        model.addAttribute("customers", customers);
+        return "catcustomers";
+    }
+
+    @RequestMapping("/dogcustomers")
+    public String loadDogCustomersPage(Model model) {
+        model.addAttribute("customers", customers);
+        return "dogcustomers";
+    }
+
+    @RequestMapping("/")
+    public String loadHomePage(Model model) {
         model.addAttribute("customers", customers);
         return "home";
     }
