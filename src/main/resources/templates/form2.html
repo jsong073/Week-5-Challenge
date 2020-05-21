@@ -35,7 +35,8 @@
         Phone Number: [[${customer.phone}]] <br/>
         Pet Name: [[${customer.pet.name}]] <br/>
         Pet Gender: [[${customer.pet.gender}]] <br/>
-        Pet Age: [[${customer.pet.age}]]
+        Pet Age: [[${customer.pet.age}]] <br/>
+        Additional Information: [[${customer.pet.info}]]
     </div>
     <form action="#" th:action="@{/home}" th:object="${customer}" method="post">
         <div th:switch="*{pet.type}">

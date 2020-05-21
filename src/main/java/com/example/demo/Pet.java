@@ -6,6 +6,7 @@ public class Pet {
     private String gender;
     private String type;
     private String breed;
+    private String info;
 
     public String getName() {
         return name;
@@ -45,6 +46,14 @@ public class Pet {
 
     public void setBreed(String breed) {
         this.breed = breed;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     @Override
