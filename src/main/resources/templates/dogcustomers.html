@@ -33,16 +33,20 @@
     <div th:each="customer:${customers}">
         <div class="row">
             <div class="col">
-                <ul th:if="${customer.pet.type} == 'Dog'">
-                    <h4 th:text="${customer.name}"></h4>
-                    <li th:text="${customer.phone}"></li>
-                    <strong>Pet: <span th:text="${customer.pet.type}"></span></strong>
-                    <li>Name: <span th:text="${customer.pet.name}"></span></li>
-                    <li>Gender: <span th:text="${customer.pet.gender}"></span></li>
-                    <li>Age: <span th:text="${customer.pet.age}"></span></li>
-                    <li>Breed: <span th:text="${customer.pet.breed}"></span></li>
-                    <li>Additional Information: <span th:text="${customer.pet.info}"/></li>
-                </ul>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header"><h4 th:text="${customer.name}"></h4></div>
+                        <ul th:if="${customer.pet.type} == 'Dog'">
+                            <li th:text="${customer.phone}"></li>
+                            <strong>Pet: <span th:text="${customer.pet.type}"></span></strong>
+                            <li>Name: <span th:text="${customer.pet.name}"></span></li>
+                            <li>Gender: <span th:text="${customer.pet.gender}"></span></li>
+                            <li>Age: <span th:text="${customer.pet.age}"></span></li>
+                            <li>Breed: <span th:text="${customer.pet.breed}"></span></li>
+                            <li>Additional Information: <span th:text="${customer.pet.info}"/></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

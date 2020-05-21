@@ -38,14 +38,18 @@
         <div class="row">
             <div class="col">
                 <ul th:each="customer:${customers}">
-                    <h4 th:text="${customer.name}"></h4>
-                    <li>Phone Number: <span th:text="${customer.phone}"></span></li>
-                    <strong>Pet: <span th:text="${customer.pet.type}"></span></strong>
-                    <li>Name: <span th:text="${customer.pet.name}"></span></li>
-                    <li>Gender: <span th:text="${customer.pet.gender}"></span></li>
-                    <li>Age: <span th:text="${customer.pet.age}"></span></li>
-                    <li>Breed: <span th:text="${customer.pet.breed}"></span></li>
-                    <li>Additional Information: <span th:text="${customer.pet.info}"/></li>
+                    <div class="card">
+                        <div class="card-header"><h4 th:text="${customer.name}"></h4></div>
+                        <div class="card-body">
+                            <li>Phone Number: <span th:text="${customer.phone}"></span></li>
+                            <strong>Pet: <span th:text="${customer.pet.type}"></span></strong>
+                            <li>Name: <span th:text="${customer.pet.name}"></span></li>
+                            <li>Gender: <span th:text="${customer.pet.gender}"></span></li>
+                            <li>Age: <span th:text="${customer.pet.age}"></span></li>
+                            <li>Breed: <span th:text="${customer.pet.breed}"></span></li>
+                            <li>Additional Information: <span th:text="${customer.pet.info}"/></li>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
