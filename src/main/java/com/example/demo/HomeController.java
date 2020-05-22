@@ -23,7 +23,7 @@ public class HomeController {
     public String processForm(@ModelAttribute Customer customer, Model model) {
         this.customer = customer;
         System.out.println(this.customer.toString());
-        model.addAttribute("customer", customer);
+        model.addAttribute("customer", customer); //The customer added to the model has no information except for the breed
         return "form2";
 
     }
@@ -37,7 +37,7 @@ public class HomeController {
     @PostMapping("/home")
     public String processFinalForm(@ModelAttribute Customer customer, Model model) {
         System.out.println(this.customer.toString());
-        this.customer.getPet().setBreed(customer.getPet().getBreed());
+        this.customer.getPet().setBreed(customer.getPet().getBreed());  //This set method takes the breed information from the @ModelAttribute customer and sets it to this.customer
         customers.add(this.customer);
         model.addAttribute("customers", customers);
         return "home";
